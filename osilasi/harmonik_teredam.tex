@@ -1,0 +1,143 @@
+\section{Osilasi harmonik teredam}
+
+Misalkan sekarang selain dari gaya pemulih juga
+bekerja gaya gesek atau gaya redam, yang disebabkan misalnya oleh
+gesekan dengan udara atau fluida lain.
+Gaya redam ini biasanya dimodelkan sebagai
+\begin{equation}
+F_{\mathrm{damp}} = -bv = -b\frac{\mathrm{d}x}{\mathrm{d}t}
+\end{equation}
+dengan $b$ adalah suatu konstanta.
+Pada kasus ini, persamaan gerak dari osilator menjadi sebagai berikut:
+\begin{equation}
+m\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+b\frac{\mathrm{d}x}{\mathrm{d}t}+kx=0
+\end{equation}
+Dengan mendefinisikan konstanta $\beta$, disebut konstanta redaman, \emph{damping constant}
+sebagai berikut
+\begin{equation}
+\beta = \frac{b}{2m}
+\end{equation}
+dan frekuensi alami (\emph{natural frequency})
+\begin{equation}
+\omega_{0}=\sqrt{\frac{k}{m}},
+\end{equation}
+persamaan osilator teredam dapat ditulis menjadi
+\begin{equation}
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} + 2\beta \frac{\mathrm{d}x}{\mathrm{d}t} + \omega_{0}^{2}x = 0
+\label{eq:Taylor_5_28}
+\end{equation}
+
+Persamaan ini masih merupakan persamaan diferensial orde dua, linear,
+dan homogen. Jika kita dapat menemukan dua solusi independen $x_{1}(t)$
+dan $x_{2}(t)$ pada persamaan ini, maka solusi umum dari persamaan
+ini dapat dituliskan sebagai superposisi dari dua solusi, yaitu $C_{1}x_{1}(t)+C_{2}x_{2}(t)$.
+
+Seperti kasus osilator harmonik tanpa redaman,
+\textit{ansatz} solusi coba yang sering digunakan untuk persamaan diferensial ini adalah
+\begin{equation*}
+x(t) = e^{rt}
+\end{equation*}
+Dapat dihitung
+\begin{equation*}
+\frac{\mathrm{d}x}{\mathrm{d}t} = re^{rt}
+\end{equation*}
+dan
+\begin{equation*}
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} = r^{2}e^{rt}
+\end{equation*}
+Dengan melakukan substitusi pada persamaan diferensial untuk osilasi
+teredam diperoleh persamaan bantu (\textit{auxiliary equation}) dalam $r$:
+\begin{equation}
+r^{2} + 2\beta r + \omega_{0}^{2} = 0
+\end{equation}
+Persamaan ini adalah persamaan kuadrat dengan akar-akar sebagai berikut:
+\begin{align*}
+r_{1} & =\frac{-2\beta + \sqrt{(2\beta)^{2} - 4(1)(\omega_{0}^{2})}}{2(1)} = -\beta+\sqrt{\beta^{2}-\omega_{0}^{2}}\\
+r_{2} & =\frac{-2\beta - \sqrt{(2\beta)^{2} - 4(1)(\omega_{0}^{2})}}{2(1)} = -\beta-\sqrt{\beta^{2}-\omega_{0}^{2}}
+\end{align*}
+Maka dengan menyelesaikan persamaan bantu, kita mendapatkan dua fungsi $e^{r_{1}t}$ dan $e^{r_{2}t}$
+yang merupakan dua solusi independen. 
+Solusi umumnya dari Persamaan \eqref{eq:Taylor_5_28} adalah:
+\begin{align*}
+x(t) & = C_{1}e^{r_{1}t}+C_{2}e^{r_{2}t} \\
+ & = e^{-\beta t} \left( C_1 e^{\sqrt{\beta^2 - \omega_0} t} + C_2 e^{ -\sqrt{\beta^2 - \omega_0} t} \right)
+\end{align*}
+
+Sekarang, bergantung dari nilai-nilai $r_1$ dan $r_2$ (atau parameter $\beta$ dan $\omega_0$),
+kita akan meninjau beberapa kasus yang mungkin.
+
+
+\subsection*{Osilasi tidak teredam}
+
+Kasus pertama yang akan ditinjau adalah ketika $\beta = 0$, atau tidak ada redaman sama sekali.
+Kasus pada kasus ini $r_1$ dan $r_2$ akan bernilai imajiner murni $r_{1,2} = \pm \omega_0$ yang
+sudah dibahas pada bagian sebelumnya.
+
+Untuk selanjutnya kita akan mengasumsikan nilai $\beta > 0$.
+
+\subsection*{Osilasi teredam lemah (underdamped)}
+
+Pada kasus $\beta > 0$ dan $\beta < \omega_{0}$ akar-akar $r_{1}$ dan $r_{2}$ akan
+bernilai kompleks karena kuantitas $\beta**2 - \omega_0^2$ akan bernilai negatif.
+Kita dapat menuliskan
+\begin{equation*}
+\sqrt{\beta^{2}  -\omega_{0}^{2}} = \mathrm{i} \sqrt{\omega_{0}^{2}-\beta^{2}} = \mathrm{i}\omega_{1}
+\end{equation*}
+dengan 
+\begin{equation*}
+\omega_{1} = \sqrt{\omega_{0}^{2} - \beta^{2}}
+\end{equation*}
+Kasus ini juga sering disebut sebagai kasus \textit{underdamped}.
+
+Solusi $x(t)$ dapat ditulis sebagai berikut
+\begin{equation}
+x(t) = e^{-\beta t} \left( C_{1}e^{\mathrm{i}\omega_{1}t} + C_{2}e^{-\mathrm{i}\omega_{1}t} \right)
+\end{equation}
+Karena bentuk eksponensial di dalam tanda kurung dapat diubah menjadi fungsi cosinus
+dengan pergeseran fasa, maka juga dapat ditulis
+\begin{equation}
+x(t) = Ae^{-\beta t}\cos(\omega_{1}t - \delta)
+\end{equation}
+
+
+\subsection*{Osilasi teredam kuat (overdamped)}
+
+Tinjau kasus di mana $\beta > \omega_{0}$ sehingga akar-akar $r_{1}$ dan $r_{2}$ bernilai real.
+
+Solusi $x(t)$ dapat ditulis menjadi:
+\begin{equation}
+x(t) = C_{1}e^{ - \left( \beta - \sqrt{\beta^{2}-\omega_{0}^{2}} \right) t} +
+       C_{2}e^{ - \left( \beta + \sqrt{\beta^{2}-\omega_{0}^{2}} \right) t}
+\end{equation}
+Kasus ini juga sering disebut sebagai \textit{overdamped}.
+     
+Perhatikan bahwa kedua pangkat dari eksponensial tersebut adalah negatif, sehingga $x(t)$ akan menuju 0 ketika
+$t \rightarrow \infty$.
+Perhatikan juga bahwa suku pertama akan meluruh lebih lama daripada suku kedua karena nilai
+eksponen negatif suku pertama lebih kecil daripada suku
+kedua. Dalam jangka panjang suku ini akan mendominasi, karena suku kedua sudah meluruh lebih dahulu (lebih cepat
+mendekati nol). Oleh karena itu laju di mana gerakan akan berhenti dapat dikarakterisasi oleh
+koefisien dari ekponensial pertama yaitu
+\begin{equation}
+\text{parameter peluruhan} = \beta - \sqrt{\beta^2 - \omega_0^2}
+\end{equation}
+Perhatikan bahwa, laju peluruhan akan menjadi lebih kecil apabila konstanta $\beta$
+menjadi semakin besar.
+
+
+\subsection*{Osilasi teredam kritis (critically damped)}
+
+Pada kasus ini $\beta=\omega_{0}$ sehingga
+akar-akar $r_{1}$ dan $r_{2}$ bernilai sama, yaitu $r_{1} = r_{2} = \beta$.
+
+Karena hanya ada satu solusi khusus, kita perlu mencari satu solusi khusus
+lagi agar dapat menuliskan solusi umum. Solusi khusus tambahan yang
+dapat digunakan adalah
+\begin{equation}
+x(t) = te^{-\beta t}
+\end{equation}
+sehingga solusi umum yang diperoleh adalah
+\begin{align*}
+x(t) & = C_{1}e^{-\beta t} + C_{2}te^{-\beta t} \\
+     & = e^{-\beta t}\left(C_{1} + C_{2}t \right)
+\end{align*}

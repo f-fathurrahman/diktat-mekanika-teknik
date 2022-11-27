@@ -1,0 +1,221 @@
+\section{Osilasi harmonik terpaksa}
+
+Misalkan gaya pemaksa luar (\textit{external driving force}) yang bekerja adalah
+$F(t)$, dan juga bekerja gaya redaman $-bv$, maka gaya total yang
+bekerja pada osilator adalah $-bv-kx+F(t)$, sehingga diperoleh persamaan
+gerak sebagai berikut:
+\[
+m\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+b\frac{\mathrm{d}x}{\mathrm{d}t}+kx=0
+\]
+dengan mendefinisikan $\beta=b/(2m),$$\omega_{0}^{2}=k/m$, dan
+\[
+f(t)=\frac{F(t)}{m}
+\]
+adalah gaya persatuan massa. Dengan notasi ini dapat dituliskan persamaan
+gerak untuk osilator sebagai berikut:
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+2\beta\frac{\mathrm{d}x}{\mathrm{d}t}+\omega_{0}^{2}x=f(t)
+\]
+
+\subsection{Operator diferensial linear}
+
+Tinjau operator diferensial $\mathbb{D}$ yang didefinisikan sebagai
+\begin{equation}
+\mathbb{D}=\frac{\mathrm{d}^{2}}{\mathrm{d}t^{2}}+2\beta\frac{\mathrm{d}}{\mathrm{d}t}+\omega_{0}^{2}
+\end{equation}
+Dengan menggunakan notasi ini, persamaan diferensial untuk osilator
+harmonik terpaksa dapat ditulis menjadi
+\begin{equation*}
+\mathbb{D}x=f
+\end{equation*}
+dengan $x$ dan $f$ adalah fungsi dari $t$.
+
+Perhatikan bahwa untuk operator $\mathbb{D}$
+berlaku hubungan berikut.
+\begin{equation*}
+\mathbb{D}(ax) = a\mathbb{D}x
+\end{equation*}
+untuk suatu skalar $a$ dan
+\begin{equation*}
+\mathbb{D}(x_{1} + x_{2}) = \mathbb{D}x_{1} + \mathbb{D}x_{2}
+\end{equation*}
+dengan $x_{1}$ dan $x_{2}$ adalah sembarang fungsi dari $t$.
+Dua kondisi di atas dapat digabung menjadi:
+\begin{equation*}
+\mathbb{D}(ax_{1} + bx_{2})=a\mathbb{D}x_{1}+b\mathbb{D}x_{2}
+\end{equation*}
+untuk sembarang konstanta $a$ dan $b$ dan dua fungsi $x_{1}(t)$
+dan $x_{2}(t)$. Operator yang memenuhi syarat ini disebut
+operator linear.
+
+Dengan menggunakan notasi ini, persamaan diferensial untuk osilator
+harmonik tanpa gaya paksa atau gaya eksternal adalah:
+\begin{equation}
+\mathbb{D}x = 0
+\label{eq:Taylor_5_52}
+\end{equation}
+Untuk operator linear berlaku prinsip superposisi. Jika $x_1$ dan $x_2$ adalah solusi
+dari Persamaan \eqref{eq:Taylor_5_52}, maka $ax_1 + bx_2$ juga merupakan solusi. Kita
+sudah menggunakan prinsip ini sebelumnya dalam menyelesaikan persamaan harmonik
+sederhana.
+
+Persamaan \eqref{eq:Taylor_5_52} juga sering disebut persamaan homogen, karena untuk
+setiap suku yang terlibat hanya $x$ atau salah satu dari turunannya
+tepat sekali, sedangkan persamaan $\mathbb{D}x = f$ disebut juga dengan
+persamaan inhomogen, karena mengandung suku $f$ yang tidak melibatkan
+$x$ sama sekali. Tugas kita sekarang adalah menyelesaikan persamaan inhomogen ini.
+Untungnya, tugas ini menjadi cukup mudah karena kita telah mendapatkan
+solusi untuk persamaan homogen.
+
+Misalkan kita telah mendapatkan suatu solusi, $x_{p}(t)$ yang memenuhi
+\begin{equation}
+\mathbb{D}x_{p} = f
+\label{eq:Taylor_5_53}
+\end{equation}
+Solusi $x_{p}(t)$ ini disebut sebagai solusi khusus (\textit{particular solution}).
+Tinjau persamaan homogen $\mathbb{D}x=0$ dan misalkan kita telah
+mendapatkan solusi $x_{h}(t)$ yang memenuhi
+\begin{equation*}
+\mathbb{D}x_{h}=0
+\end{equation*}
+Solusi ini disebut sebagai solusi homogen. Kita telah mendapatkan solusi ini
+yaitu:
+\[
+x_{h}(t) = C_{1}e^{r_{1}t} + C_{2}e^{r_{2}t}
+\]
+di mana kedua suku eksponensial ini menuju nol untuk $t\rightarrow\infty$
+(dengan syarat $r_{1}$ dan $r_{2}$ tidak bernilai real positif).
+
+Jika $x_{p}$ adalah solusi khusus dari \ref{eq:Taylor_5_53}, maka
+$x_{p}+x_{h}$ adalah juga adalah satu solusi yang lain, karena juga
+memenuhi persamaan diferensial $\mathbb{D}x=f$:
+\begin{align*}
+\mathbb{D}(x_{p}+x_{h}) & =\mathbb{D}x_{p}+\mathbb{D}x_{h}\\
+ & =f + 0 = f
+\end{align*}
+Artinya, yang kita perlukan adalah tinggal mencari satu solusi khusus $x_{p}(t)$
+dan kita telah mendapatkan solusi umum dari persamaan inhomogen.
+
+\subsection{Kasus khusus: gaya pemaksa cosinus}
+
+Dalam aplikasi, ada beberapa bentuk $f(t)$ yang sering digunakan.
+Kita meninjau satu kasus khusus, yaitu
+\begin{equation}
+f(t) = f_{0}\cos(\omega t)
+\end{equation}
+dengan $f_{0}$ menyatakan amplitudo dari gaya pemaksa persatuan massa
+dan $\omega$ adalah frekuensi sudut dari gaya pemaksa (\textit{driving frequency}).
+Perhatikan bahwa $\omega$ berbeda atau independen dari $\omega_0$
+
+Persamaan diferensial yang kita tinjau menjadi
+\begin{equation}
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} + 
+2\beta\frac{\mathrm{d}x}{\mathrm{d}t} + \omega_{0}^{2}x = f_{0}\cos(\omega t)
+\end{equation}
+Kita akan menggunakan suatu trik agar persamaan diferensial ini menjadi lebih
+mudah untuk diselesaikan, yaitu dengan menyelesaikan persamaan diferensial
+lain yang masih terkait.
+Untuk sembarang solusi dari persamaan ini, terdapat suatu solusi dari
+persamaan yang sama, namun dengan suku cos pada RHS diganti dengan
+fungsi sin, karena cos dan sin hanya dibedakan dengan sudut fasa.
+Dengan kata lain, terdapat suatu fungsi $y(t)$ yang memenuhi
+\begin{equation*}
+\frac{\mathrm{d}^{2}y}{\mathrm{d}t^{2}} +
+2\beta\frac{\mathrm{d}y}{\mathrm{d}t} + \omega_{0}^{2}y = f_{0}\sin(\omega t)
+\end{equation*}
+
+Sekarang, definisikan fungsi kompleks:
+\begin{equation*}
+z(t) = x(t) + \mathrm{i}y(t)
+\end{equation*}
+Jika kita mengalikan persamaan sin dengan $\mathrm{i}$ dan menjumlahkannya
+ke persamaan dengan cos, diperoleh
+\begin{equation*}
+\frac{\mathrm{d}^{2}z}{\mathrm{d}t^{2}} +
+2\beta\frac{\mathrm{d}z}{\mathrm{d}t} + \omega_{0}^{2}z = f_{0}e^{\mathrm{i}\omega t}
+\end{equation*}
+Persamaan ini lebih mudah untuk diselesaikan.
+
+Gunakan bentuk solusi
+\begin{equation*}
+z(t) = Ce^{\mathrm{i}\omega t}
+\end{equation*}
+yang memberikan
+\begin{equation*}
+(-\omega^{2}+2\mathrm{i}\beta\omega+\omega_{0}^{2})Ce^{\mathrm{i}\omega t}=f_{0}e^{\mathrm{i}\omega t}
+\end{equation*}
+Agar dapat menjadi solusi, kita memerlukan
+\begin{equation*}
+C = \frac{f_{0}}{\omega_{0}^{2} - \omega^{2} + 2\mathrm{i}\beta\omega}
+\end{equation*}
+Tulis koefisien $C$ (yang merupakan bilangan kompleks) dalam bentuk
+\begin{equation*}
+C = Ae^{-\mathrm{i}\delta}
+\end{equation*}
+di mana $A$ dan $\delta$ adalah bilangan real.
+
+Nilai $A$ dapat diperoleh dari
+\begin{align*}
+A^{2} & = CC^{*} =
+\frac{f_{0}}{\omega_{0}^{2} - \omega^{2} + 2\mathrm{i}\beta\omega} \cdot 
+\frac{f_{0}}{\omega_{0}^{2} - \omega^{2} - 2\mathrm{i}\beta\omega} \\
+ & = \frac{f_{0}^{2}}{\left(\omega_{0}^{2} - \omega^{2}\right)^{2} + 4\beta^{2}\omega^{2}}
+\end{align*}
+Untuk nilai $f_0$ dan $\beta$ tetap, amplitudo $A$ akan
+bernilai paling besar ketika $\omega_{0} \approx \omega$.
+Dengan kata lain, osilator
+akan merespon paling baik ketika diberikan gaya periodik dengan
+frekuensi $\omega$ yang dekat dengan frekuensi natural dari osilator.
+Fenomena ini dikenal dengan sebagai \emph{resonansi}.
+
+Untuk menemukan sudut fasa $\delta$ kita dapat menggunakan
+\begin{equation*}
+C = \frac{f_{0}}{\omega_{0}^{2}-\omega^{2}+2\mathrm{i}\beta\omega}
+\end{equation*}
+dan
+\begin{equation*}
+C = Ae^{-\mathrm{i}\delta}
+\end{equation*}
+Dari dua ekspresi untuk $C$ di atas, dapat diperoleh
+\begin{equation*}
+\frac{f_{0}}{\omega_{0}^{2} - \omega^{2} + 2\mathrm{i}\beta\omega} = A e^{-\mathrm{i}\delta}
+\end{equation*}
+atau
+\begin{equation*}
+f_{0}e^{\mathrm{i}\delta} = A\left(\omega_{0}^{2} - \omega^{2} + 2\mathrm{i}\beta\omega\right)
+\end{equation*}
+Karena $f_{0}$ dan $A$ sama-sama bernilai real, maka sudut fasa
+$\delta$ sama dengan sudut fasa dari bilangan kompleks $\omega_{0}^{2}-\omega^{2} + 2\mathrm{i}\beta\omega$,
+yaitu
+\begin{equation*}
+\delta=\arctan\left(\frac{2\beta\omega}{\omega_{0}^{2}-\omega^{2}}\right)
+\end{equation*}
+
+Karena $A$ dan $\delta$ sudah dapat diperoleh, kita dapat membentuk solusi kompleks
+$z(t)$ yang diperlukan, yaitu
+\begin{equation}
+z(t) = Ce^{\mathrm{i}\omega t} = A e^{\mathrm{i}(\omega t-\delta)}
+\end{equation}
+dan bagian real dari fungsi ini adalah solusi yang kita cari, yaitu:
+\begin{equation}
+x(t) = A\cos(\omega t - \delta)
+\end{equation}
+
+Solusi ini hanyalah satu solusi khusus dari persamaan gerak. Solusi
+umum diperoleh dengan menambahkan sembarang solusi dari persamaan
+homogon terkait, sehingga diperoleh solusi umum sebagai berikut
+\begin{equation}
+x(t) = A\cos(\omega t-\delta) + C_{1}e^{r_{1}t} + C_{2}e^{r_{2}t}
+\end{equation}
+Karena dua suku ekstra ada solusi umum ini merupakan eksponensial
+yang meluruh (dengan asumsi bagian real dari $r_{1}$ dan $r_{2}$
+adalah bilangan negatif), maka suku-suku ini disebut sebagai suku
+transien. Suku ini bergantung pada syarat awal, namum pada akhirnya
+akan tidak relevan untuk perilaku solusi pada jangka panjang. Oleh
+karena itu, suku cosinus (suku pertama) pada akhirnya akan mendominasi.
+
+Untuk kasus osilasi teredam, dua suku terakhir dapat ditulis sebagai
+cosinus meluruh dengan pergeseran fasa:
+\begin{equation}
+x(t)=A\cos(\omega t-\delta)+A_{\mathrm{tr}}e^{-\beta t}\cos(\omega_{1}-\delta_{\mathrm{tr}})
+\end{equation}

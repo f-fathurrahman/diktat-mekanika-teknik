@@ -1,0 +1,205 @@
+\section{Gerak harmonik sederhana}
+
+Dengan menggunakan hukum Newton:
+\footnote{
+Notasi di buku: $\ddot{x}\equiv\dfrac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}$
+}
+\begin{equation*}
+m \frac{\mathrm{d}^2x}{\mathrm{d}t^2} = F_x
+\end{equation*}
+%
+diperoleh
+%
+\begin{equation*}
+m \frac{\mathrm{d}^2x}{\mathrm{d}t^2}  = -kx
+\end{equation*}
+%
+atau:
+%
+\begin{equation}
+\frac{\mathrm{d}^2x}{\mathrm{d}t^2} = -\omega_0^2 x
+\label{eq:Taylor_5_4}
+\end{equation}
+%
+dengan $\omega_0$ adalah frekuensi sudut
+%
+\begin{equation}
+\omega_{0} = \sqrt{\frac{k}{m}}
+\end{equation}
+%
+Ingat juga hubungan frekuensi sudut dengan periode dan frekuensi linear $f$
+yaitu $\omega = \dfrac{2 \pi}{T} = 2 \pi f$.
+
+Tugas kita selanjutnya adalah mencari solusi $x(t)$ dari persamaan diferensial
+\eqref{eq:Taylor_5_4}. Solusi ini dapat dituliskan dalam berbagai bentuk.
+
+
+
+\subsection*{Solusi eksponensial}
+
+Biasanya untuk persamaan diferensial linear, digunakan \textit{ansatz} solusi
+coba (\textit{trial solution}) berupa fungsi eksponensial:
+\begin{align*}
+x_{1}(t) & = e^{\mathrm{i}\omega_0 t} \\
+x_{2}(t) & = e^{-\mathrm{i}\omega_0 t}
+\end{align*}
+%
+Dapat dicek bahwa kedua solusi coba tersebut memenuhi persamaan \eqref{eq:Taylor_5_4}.
+Misalnya, untuk $x_{1}(t) = e^{\mathrm{i}\omega_0 t}$ diperoleh turunan pertama
+%
+\begin{equation*}
+\frac{\mathrm{d}x_{1}(t)}{\mathrm{d}t} = \mathrm{i}\omega e^{\mathrm{i} \omega_0 t}
+\end{equation*}
+%
+dan turunan kedua
+%
+\begin{equation*}
+\frac{\mathrm{d}^{2}x_{1}(t)}{\mathrm{d}t^{2}} = (\mathrm{i}\omega_0)^{2} e^{\mathrm{i} \omega t} =
+-\omega_{0}^{2}e^{\mathrm{i} \omega t}
+\end{equation*}
+sehingga:
+\begin{equation*}
+\frac{\mathrm{d}^{2}x_1(t)}{\mathrm{d}t^{2}} = -\omega_0^{2} x_{1}(t)
+\end{equation*}
+Dengan cara yang sama juga dapat ditunjukkan bahwa $x_{2}(t)$ juga
+memenuhi \eqref{eq:Taylor_5_4}.
+
+Solusi umum dari persamaan \eqref{eq:Taylor_5_4} adalah kombinasi linear dari
+$x_{1}(t)$ dan $x_{2}(t)$:
+\begin{equation}
+x(t) = C_{1} e^{\mathrm{i}\omega_{0} t} + C_{2} e^{-\mathrm{i}\omega_{0} t}
+\label{eq:Taylor_5_5}
+\end{equation}
+dengan $C_1$ dan $C_2$ adalah konstanta yang dapat
+ditentukan dari syarat awal: $x(t=0)$ dan $\dfrac{\mathrm{d}x}{\mathrm{d}t}(t=0)$.
+
+
+
+\subsection*{Solusi sinusoidal (sin dan cos)}
+
+Solusi eksponensial pada Persamaan \eqref{eq:Taylor_5_5} sangat mudah untuk dimanipulasi
+sehingga sering digunakan sebagai solusi coba untuk persamaan diferensial linear. Meskipun
+demikian, bentuk ini memiliki kekurangan. Karena $x(t)$ adalah kuantitas real, maka koefisien
+$C_1$ dan $C_2$ harus dipilih sedemikian rupa sehingga $x(t)$ bernilai real. Ada kalanya
+kita lebih mudah untuk menggunakan bentuk lain dari Persamaan \eqref{eq:Taylor_5_5}.
+
+Dengan menggunakan persamaan
+\begin{equation*}
+e^{\pm\mathrm{i}\omega_{0} t} = \cos(\omega_{0} t)\pm\mathrm{i}\sin(\omega_{0} t)
+\end{equation*}
+%
+dapat diperoleh
+%
+\begin{align*}
+x(t) & = (C_{1} + C_{2}) \cos(\omega_{0} t) + \mathrm{i}(C_{1} - C_{2})\sin(\omega_{0} t) \nonumber \\
+     & = B_{1}\cos(\omega_{0} t) + B_{2}\sin(\omega_{0} t) \label{eq:Taylor_5-6}
+\end{align*}
+%
+dengan $B_1$ dan $B_2$ dinyatakan dalam koefisien $C_1$ dan $C_2$:
+%
+\begin{equation}
+B_{1} = C_{1} + C_{2} \text{ dan } B_{2} = \mathrm{i}(C_{1} - C_{2})
+\label{eq:Taylor_5_7}
+\end{equation}
+%
+Turunan pertama:
+\begin{equation*}
+\frac{\mathrm{d}x}{\mathrm{d}t}=-B_{1}\omega\sin(\omega t)+B_{2}\omega\cos(\omega t)
+\end{equation*}
+
+Misalnya diberikan syarat awal
+$x(t=0) = x_{0}$
+dan
+$\left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|_{t=0} = v_{0} = 0$
+maka dapat diperoleh $B_{1} = x_{0}$ dan $B_{2} = 0$.
+
+Untuk syarat awal yang lain:
+$x(t=0) = x_0 = 0$
+dan
+$\left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|_{t=0} = v_{0}$
+maka diperole $B_{1} = 0$ dan $B_{2} = \frac{v_{0}}{\omega}$.
+
+\subsection*{Solusi kosinus dengan pergeseran fasa}
+
+Definisikan suatu konstanta lain $A$ sebagai:
+\begin{equation}
+A = \sqrt{B_{1}^{2} + B_{2}^{2}}
+\label{eq:Taylor_5_10}
+\end{equation}
+Perhatikan bahwa $A$ dapat dianggap sebagai sisi miring segitiga siku-siku dengan
+sisi-sisi yang lainnya adalah $B_1$ dan $B_2$, seperti pada Gambar \ref{fig:Taylor_5_4}.
+
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{images_priv/Taylor_Fig_5_4.png}
+\caption{Konstanta $A$ dan $\delta$ didefinisikan dalam $B_1$ dan $B_2$.}
+\label{fig:Taylor_5_4}
+\end{marginfigure}
+
+Dengan menggunakan hubungan ini, Persamaan \eqref{eq:Taylor_5_6} dapat
+ditulis menjadi:
+\begin{align*}
+x(t) & = A \left[\frac{B_{1}}{A}\cos(\omega_0 t) + \frac{B_{2}}{A}\sin(\omega_0 t) \right] \\
+     & = A\left[ \cos\delta\cos(\omega_0 t)+\sin\delta\sin(\omega_0 t) \right]
+\end{align*}
+atau
+\begin{equation}
+  x(t) = A \cos(\omega_0 t - \delta)
+  \label{eq:Taylor_5_11}
+\end{equation}
+dengan $\delta$ adalah pergeseran (sudut) fasa
+
+
+\subsection*{Bagian real dari eksponensial kompleks}
+
+Koefisien $C_1$ dan $C_2$ dapat dinyatakan dalam $B_1$ dan $B_2$ sebagai
+\begin{equation}
+C_{1} = \frac{1}{2}(B_{1} - \mathrm{i}B_{2}) \text{ dan }
+C_{2} = \frac{1}{2}(B_{1} + \mathrm{i}B_{2})
+\label{eq:Taylor_5_12}
+\end{equation}
+Karena $B_{1}$dan $B_{2}$ bernilai real, hubungan ini menunjukkan bahwa
+$C_{1}$ dan $C_{2}$ secara umum bernilai kompleks dan saling konjugat kompleks:
+\begin{equation*}
+C_{2} = C_{1}^{*}
+\end{equation*}
+sehingga Persamaan \eqref{eq:Taylor_5_5}
+\begin{equation*}
+x(t) = C_{1}e^{\mathrm{i}\omega_0 t} + C_{2}e^{-\mathrm{i}\omega_0 t}
+\end{equation*}
+dapat ditulis menjadi (karena $C_1$ dan $C_2$ adalah konjugat kompleks):
+\begin{equation}
+x(t) = C_{1}e^{\mathrm{i}\omega_0 t} + C_{1}^{*}e^{-\mathrm{i}\omega_0 t}
+\label{eq:Taylor_5_13}
+\end{equation}
+
+Sekarang, perhatikan bahwa untuk sembarang bilangan kompleks $z = x + \mathrm{i}y$
+kita dapat menghitung
+\begin{equation*}
+z + z^{*} = (x + \mathrm{i}y) + (x - \mathrm{i}y) = 2x = 2\mathrm{Re}(z)
+\end{equation*}
+sehingga Persamaan \eqref{eq:Taylor_5_13} dapat ditulis menjadi
+\begin{align*}
+x(t) & = 2\mathrm{Re}\left(C_{1}e^{\mathrm{i}\omega_0 t} \right) \\
+     & = \mathrm{Re}\left(2C_{1}e^{\mathrm{i}\omega_0 t} \right)
+\end{align*}
+Dengan medefinisikan $C = 2C_{1}$:
+\begin{equation*}
+x(t) = \mathrm{Re}\left(C e^{\mathrm{\mathrm{i}}\omega_0 t}\right)
+\end{equation*}
+Karena $C = 2C_1 = B_1 - \mathrm{i}B_2$ (lihat persamaan \eqref{eq:Taylor_5_12})
+dan menggunakan Gambar \ref{fig:Taylor_5_4} kita dapat menuliskan
+\begin{equation}
+C = B_1 - \mathrm{i}B_2 \equiv A e^{-\mathrm{i}\delta}
+\end{equation}
+dan
+\begin{align*}
+x(t) & = \mathrm{Re}\left(Ce^{\mathrm{\mathrm{i}}\omega_{0} t}\right) \\
+ & = \mathrm{Re}\left(Ae^{\mathrm{-i}\delta}e^{\mathrm{i}\omega_{0} t} \right) \\
+ & = \mathrm{Re}\left(Ae^{\mathrm{i}(\omega_{0} t-\delta)}\right)
+\end{align*}
+
+Bilangan kompleks $Ae^{\mathrm{i}(\omega_0 t - \delta)}$ bergerak berlawanan arah jarum jam dengan
+kecepatan sudut $\omega_0$ di sekitar suatu lingkarang dengan jari-jari $A$. Bagian real dari
+bilangan kompleks ini, yaitu $x(t)$ adalah proyeksi dari bilangan kompleks tersebut pada
+sumbu real ($x$). Ketika bilangan kompleks ini mengitari lingkaran, proyeksi pada sumbu $x$
+berosilasi mundur dan maju pada sumbu-$x$ dengan kecepatan sudut $\omega_0$ dan amplitudo $A$.
