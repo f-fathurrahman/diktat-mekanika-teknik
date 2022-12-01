@@ -4,18 +4,22 @@ Misalkan gaya pemaksa luar (\textit{external driving force}) yang bekerja adalah
 $F(t)$, dan juga bekerja gaya redaman $-bv$, maka gaya total yang
 bekerja pada osilator adalah $-bv-kx+F(t)$, sehingga diperoleh persamaan
 gerak sebagai berikut:
-\[
+\begin{equation*}
 m\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+b\frac{\mathrm{d}x}{\mathrm{d}t}+kx=0
-\]
+\end{equation*}
 dengan mendefinisikan $\beta=b/(2m),$$\omega_{0}^{2}=k/m$, dan
-\[
+\begin{equation*}
 f(t)=\frac{F(t)}{m}
-\]
+\end{equation*}
 adalah gaya persatuan massa. Dengan notasi ini dapat dituliskan persamaan
 gerak untuk osilator sebagai berikut:
-\[
-\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+2\beta\frac{\mathrm{d}x}{\mathrm{d}t}+\omega_{0}^{2}x=f(t)
-\]
+\begin{equation}
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} + 2\beta\frac{\mathrm{d}x}{\mathrm{d}t} + \omega_{0}^{2}x=f(t)
+\end{equation}
+Persamaan ini masih merupakan persamaan diferensial linear orde 2, akan tetapi sekarang persamaan
+ini memiliki suku \textit{inhomogen} pada ruas kanan, yaitu $f(t)$. Untuk mendapatkan
+solusi umum dari persamaan ini, kita akan mengulas kembali teori mengenai persamaan
+diferensial linear.
 
 \subsection{Operator diferensial linear}
 
@@ -80,9 +84,9 @@ mendapatkan solusi $x_{h}(t)$ yang memenuhi
 \end{equation*}
 Solusi ini disebut sebagai solusi homogen. Kita telah mendapatkan solusi ini
 yaitu:
-\[
+\begin{equation*}
 x_{h}(t) = C_{1}e^{r_{1}t} + C_{2}e^{r_{2}t}
-\]
+\end{equation*}
 di mana kedua suku eksponensial ini menuju nol untuk $t\rightarrow\infty$
 (dengan syarat $r_{1}$ dan $r_{2}$ tidak bernilai real positif).
 
@@ -153,8 +157,7 @@ Tulis koefisien $C$ (yang merupakan bilangan kompleks) dalam bentuk
 C = Ae^{-\mathrm{i}\delta}
 \end{equation*}
 di mana $A$ dan $\delta$ adalah bilangan real.
-
-Nilai $A$ dapat diperoleh dari
+Nilai $A$ (magnitudo) dapat diperoleh dari
 \begin{align*}
 A^{2} & = CC^{*} =
 \frac{f_{0}}{\omega_{0}^{2} - \omega^{2} + 2\mathrm{i}\beta\omega} \cdot 
@@ -166,7 +169,7 @@ bernilai paling besar ketika $\omega_{0} \approx \omega$.
 Dengan kata lain, osilator
 akan merespon paling baik ketika diberikan gaya periodik dengan
 frekuensi $\omega$ yang dekat dengan frekuensi natural dari osilator.
-Fenomena ini dikenal dengan sebagai \emph{resonansi}.
+Fenomena ini dikenal dengan istilah \emph{resonansi}.
 
 Untuk menemukan sudut fasa $\delta$ kita dapat menggunakan
 \begin{equation*}
@@ -188,7 +191,7 @@ Karena $f_{0}$ dan $A$ sama-sama bernilai real, maka sudut fasa
 $\delta$ sama dengan sudut fasa dari bilangan kompleks $\omega_{0}^{2}-\omega^{2} + 2\mathrm{i}\beta\omega$,
 yaitu
 \begin{equation*}
-\delta=\arctan\left(\frac{2\beta\omega}{\omega_{0}^{2}-\omega^{2}}\right)
+\delta = \arctan\left(\frac{2\beta\omega}{\omega_{0}^{2}-\omega^{2}}\right)
 \end{equation*}
 
 Karena $A$ dan $\delta$ sudah dapat diperoleh, kita dapat membentuk solusi kompleks
@@ -217,5 +220,99 @@ karena itu, suku cosinus (suku pertama) pada akhirnya akan mendominasi.
 Untuk kasus osilasi teredam, dua suku terakhir dapat ditulis sebagai
 cosinus meluruh dengan pergeseran fasa:
 \begin{equation}
-x(t)=A\cos(\omega t-\delta)+A_{\mathrm{tr}}e^{-\beta t}\cos(\omega_{1}-\delta_{\mathrm{tr}})
+x(t) = A\cos(\omega t-\delta)+A_{\mathrm{tr}}e^{-\beta t}\cos(\omega_{1}-\delta_{\mathrm{tr}})
 \end{equation}
+atau dalam bentuk sinus dan cosinus:
+\begin{equation}
+x(t) = A \cos(\omega t-\delta) + e^{-\beta t} \left(
+    B_1 \cos(\omega_{1}t) + B_2 \sin(\omega_{1}t)
+\right)
+\end{equation}
+
+\subsection{Contoh 5.3}
+
+Kode Python berikut ini mengimplementasikan Contoh 5.3 pada Taylor.
+
+\begin{fullwidth}
+\begin{pythoncode}
+import numpy as np
+import matplotlib.pyplot as plt
+    
+ω = 2*np.pi
+ω0 = 5*ω
+β = ω0/20
+f0 = 1000
+    
+τ = 2*np.pi/ω # Periode
+    
+# Pers. 5.64
+A2 = f0**2/( (ω0**2 - ω**2)**2 + 4*β**2 * ω**2 )
+A = np.sqrt(A2)
+print("A = ", A)
+    
+δ = np.arctan( 2*β*ω/(ω0**2 - ω**2) )
+print("δ = ", δ)
+    
+ω1 = np.sqrt(ω0**2 - β**2)
+    
+# Initial conditions
+x0 = 0.0
+v0 = 0.0
+    
+# From book
+#B1 = x0 - A*np.cos(δ)
+#B2 = ( v0 - ω*A*np.sin(δ) + β*B1 ) / ω1
+    
+# From Sympy
+B1 = -A*np.cos(δ) + x0
+B2 = (-A*ω*np.sin(δ) - β*(A*np.cos(δ) - x0) + v0)/ω1
+    
+print("B1 = ", B1)
+print("B2 = ", B2)
+    
+t = np.linspace(0.0, 5.0, 1000)
+f = f0*np.cos(ω*t)
+x = A*np.cos(ω*t - δ) + np.exp(-β*t) * ( B1*np.cos(ω1*t) + B2*np.sin(ω1*t) )
+    
+plt.clf()
+plt.plot(t, f/1000, label="driving force (scaled by 1000)")
+plt.plot(t, x, label="displacement")
+plt.legend()
+plt.grid(True)
+\end{pythoncode} 
+\end{fullwidth}
+
+Berikut ini adalah kode Python yang menggunakan SymPy untuk mencari ekspresi
+dari koefisien $B_1$ dan $B_2$ dari syarat awal.
+
+\begin{fullwidth}
+\begin{pythoncode}
+from sympy import *
+
+t = symbols("t", real=True)
+    
+ω = symbols("omega", real=True, positive=True)
+ω0 = symbols("omega_0", real=True, positive=True)
+ω1 = symbols("omega_1", real=True, positive=True)
+
+β = symbols("beta", real=True, positive=True)
+
+A = symbols("A", real=True)
+δ = symbols("delta", real=True)
+
+B1 = symbols("B_1")
+B2 = symbols("B_2")
+    
+xt = A*cos(ω*t - δ) + exp(-β*t) * ( B1*cos(ω1*t) + B2*sin(ω1*t) )
+vt = diff(xt, t, 1)
+    
+# Initial conditions (symbolic)
+x0 = symbols("x_0", real=True)
+v0 = symbols("v_0", real=True)
+    
+eqn1 = Equality( xt.subs({t: 0.0}), x0 )
+eqn2 = Equality( vt.subs({t: 0.0}), v0 )
+    
+sols = solve([eqn1, eqn2], [B1, B2])
+\end{pythoncode}
+\end{fullwidth}
